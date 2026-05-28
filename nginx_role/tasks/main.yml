@@ -1,0 +1,27 @@
+---
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+
+  tags:
+    - install
+
+- name: Deploy nginx template
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/default
+
+  notify: Restart nginx
+
+  tags:
+    - config
+
+- name: Ensure nginx service running
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+  tags:
+    - service

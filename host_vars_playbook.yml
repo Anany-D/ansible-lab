@@ -1,0 +1,7 @@
+---
+- hosts: web
+
+  tasks:
+    - name: Show host-specific configuration
+      debug:
+        msg: "Host={{ inventory_hostname }}, Port={{ custom_port }}, Owner={{ server_owner }}"

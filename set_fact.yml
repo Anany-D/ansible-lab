@@ -1,0 +1,18 @@
+---
+- hosts: local
+
+  tasks:
+    - name: Check nginx status
+      command: systemctl is-active nginx
+      register: nginx_status
+      ignore_errors: yes
+
+    - name: Set service state variable
+      set_fact:
+        service_state: running
+
+      when: nginx_status.stdout == "active"
+
+    - name: Show final state
+      debug:
+        msg: "Nginx state = {{ service_state | default('stopped') }}"

@@ -1,0 +1,14 @@
+---
+- hosts: local
+  become: yes
+
+  tasks:
+    - name: Create multiple users
+      user:
+        name: "{{ item }}"
+        state: present
+
+      loop:
+        - dev1
+        - dev2
+        - dev3

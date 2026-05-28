@@ -1,0 +1,11 @@
+---
+- hosts: web,db
+
+  tasks:
+    - name: Show group-specific message
+      debug:
+        msg: "{{server_message}}"
+
+    - name: Show package for this group
+      debug:
+        msg: "Package = {{package_name}}"

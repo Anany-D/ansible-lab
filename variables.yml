@@ -1,0 +1,12 @@
+---
+- hosts: local
+  become: yes
+
+  vars:
+    package_name: tree
+
+  tasks:
+    - name: Ensure package exists
+      apt:
+        name: "{{ package_name }}"
+        state: present

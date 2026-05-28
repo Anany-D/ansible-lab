@@ -1,0 +1,10 @@
+---
+- hosts: local
+  become: yes
+
+  tasks:
+    - name: Generate system info file
+      template:
+        src: templates/info.j2
+        dest: /tmp/system_info.txt
+

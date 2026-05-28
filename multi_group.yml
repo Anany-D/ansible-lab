@@ -1,0 +1,14 @@
+---
+- hosts: web
+
+  tasks:
+    - name: Web server message
+      debug:
+        msg: "This is a web server"
+
+- hosts: db
+
+  tasks:
+    - name: DB server message
+      debug:
+        msg: "This is a database server"

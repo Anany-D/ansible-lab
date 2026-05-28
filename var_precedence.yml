@@ -1,0 +1,7 @@
+---
+- hosts: web
+
+  tasks:
+    - name: Show final port value
+      debug:
+        msg: "Host={{ inventory_hostname }} Port={{ http_port }}"

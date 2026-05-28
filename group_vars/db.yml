@@ -1,0 +1,2 @@
+package_name: mysql-server
+server_message: "This is a database server"

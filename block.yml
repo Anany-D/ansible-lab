@@ -1,0 +1,21 @@
+---
+- hosts: local
+
+  tasks:
+    - name: Demonstrate block handling
+      block:
+
+        - name: Run invalid command
+          command: fake_command
+
+      rescue:
+
+        - name: Recovery message
+          debug:
+            msg: "Something failed, running rescue tasks"
+
+      always:
+
+        - name: Always execute this
+          debug:
+            msg: "This task runs no matter what"

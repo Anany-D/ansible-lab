@@ -1,0 +1,9 @@
+server {
+    listen 80;
+
+    server_name {{ ansible_hostname }};
+
+    location / {
+        return 200 "Hello from {{ ansible_hostname }} managed by Ansible!\n";
+    }
+}

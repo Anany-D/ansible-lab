@@ -1,0 +1,15 @@
+---
+- hosts: local
+  become: yes
+
+  tasks:
+    - name: Check nginx status
+      command: systemctl is-active nginx
+      register: nginx_status
+      ignore_errors: yes
+
+    - name: Show msg if nginx active
+      debug:
+        msg: "Nginx is running properly"
+
+      when: nginx_status.stdout == "active"

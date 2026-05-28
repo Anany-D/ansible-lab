@@ -1,0 +1,7 @@
+---
+- hosts: local
+  tasks:
+    - name: Show ubuntu message
+      debug:
+        msg: "This machine is Ubuntu"
+      when: ansible_distribution == "CentOS"

@@ -1,0 +1,11 @@
+---
+- hosts: local
+
+  tasks:
+    - name: Check nginx service status
+      command: systemctl is-active nginx
+      register : nginx_status
+
+    - name: Show nginx status
+      debug:
+        var: nginx_status

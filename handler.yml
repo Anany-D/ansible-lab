@@ -1,0 +1,16 @@
+---
+- hosts: local
+  become: yes
+
+  tasks:
+    - name: create demo file
+      copy:
+        content: "Hello from Ansible"
+        dest: /tmp/demo.txt
+      notify: Restart nginx
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted

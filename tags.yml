@@ -1,0 +1,28 @@
+---
+- hosts: local
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+      tags:
+        - install
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+
+      tags:
+        - service
+
+    - name: Create demo user
+      user:
+        name: demo_user
+        state: present
+
+      tags:
+        - users
